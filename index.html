@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myForm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Registration</h2>
+            <div class="line"></div>
+            <div class="box">
+                <div class="box-item">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter your name">
+                </div>
+                <div class="box-item"><label for="username">User Name</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username">
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-item">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="box-item"><label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter your number">
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-item">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <div class="box-item">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password"
+                        placeholder="Confirm your password">
+                </div>
+            </div>
+            <div class="genderbox">
+                <label for="gender">Gender</label><br>
+                <div class="gender">
+                    <div>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="other" name="gender" value="other">
+                        <label for="other">Prefer not to say</label>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <button id="btn">Register</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let fullname = document.getElementById("fullname");
+        let fullName;
+        fullname.addEventListener("input", () => {
+            fullName = fullname.value;
+            console.log(fullName);
+        })
+        let username = document.getElementById("username");
+        let userName;
+        username.addEventListener("input", () => {
+            userName = username.value;
+            console.log(userName);
+        })
+        let email = document.getElementById("email");
+        let emailId;
+        email.addEventListener("input", () => {
+            emailId = email.value;
+            console.log(emailId);
+        })
+        let phone = document.getElementById("phone");
+        let phoneNumber;
+        phone.addEventListener("input", () => {
+            phoneNumber = phone.value;
+            console.log(phoneNumber);
+        })
+        let password = document.getElementById("password");
+        let pass;
+        password.addEventListener("input", () => {
+            pass = password.value;
+            console.log(pass);
+        })
+        let confirmPassword = document.getElementById("confirm-password");
+        let confirmPass;
+        confirmPassword.addEventListener("input", () => {
+            confirmPass = confirmPassword.value;
+            console.log(confirmPass);
+        })
+
+        let button = document.getElementById("btn");
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            let checkbox = document.querySelectorAll("input[name='gender']:checked");
+            let selected = [];
+            checkbox.forEach((x) => {
+                selected.push(x.value)
+            })
+            if (pass !== confirmPass) {
+                console.log("Password does not match");
+            }
+            else {
+                console.log("Password matched");
+                console.log("Form submitted");
+                console.log("Full Name: " + fullName);
+                console.log("User Name: " + userName);
+                console.log("Email: " + emailId);
+                console.log("Phone Number: " + phoneNumber);
+                console.log("Gender:" + selected);
+            }
+        })
+
+    </script>
+</body>
+
+</html>
